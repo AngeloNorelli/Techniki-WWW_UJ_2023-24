@@ -21,28 +21,28 @@
         let seconds = 0;
 
         function startTimer() {
-        seconds = parseInt(document.getElementById('secondsInput').value);
-        
-        if (seconds > 0) {
-            timer = setInterval(updateTimer, 1000);
-        }
+            seconds = parseInt(document.getElementById('secondsInput').value);
+            
+            if (seconds > 0) {
+                timer = setInterval(updateTimer, 1000);
+            }
         }
 
         function updateTimer() {
-        const timerValue = document.getElementById('timerValue');
-        
-        if (seconds > 0) {
-            seconds--;
-            timerValue.textContent = seconds + 's';
-        } else {
-            clearInterval(timer);
-            timerValue.textContent = 'Koniec!';
-        }
+            const timerValue = document.getElementById('timerValue');
+            
+            if (seconds > 0) {
+                seconds--;
+                timerValue.textContent = seconds + 's';
+            } else {
+                clearInterval(timer);
+                timerValue.textContent = 'Koniec!';
+            }
         }
 
         function stopTimer() {
-        clearInterval(timer);
-        document.getElementById('timerValue').textContent = 'Minutnik zatrzymany.';
+            clearInterval(timer);
+            document.getElementById('timerValue').textContent = 'Minutnik zatrzymany.';
         }
     </script>
 </body>

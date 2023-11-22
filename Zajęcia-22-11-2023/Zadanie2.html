@@ -15,27 +15,27 @@
     <div id="colorBox"></div>
 
     <script>
-    document.getElementById('colorBox').addEventListener('mousemove', changeColor);
+        document.getElementById('colorBox').addEventListener('mousemove', changeColor);
 
-    function changeColor(event) {
-        const box = document.getElementById('colorBox');
-        const width = box.offsetWidth;
-        const height = box.offsetHeight;
-        
-        const mouseX = event.offsetX;
-        const mouseY = event.offsetY;
-        
-        const percentX = (mouseX / width) * 100;
-        const percentY = (mouseY / height) * 100;
-        
-        const red = Math.round(percentX);
-        const green = Math.round(percentY);
-        const blue = 100;
-        
-        const color = `rgb(${red}%, ${green}%, ${blue}%)`;
-        
-        box.style.backgroundColor = color;
-    }
+        function changeColor(event) {
+            const box = document.getElementById('colorBox');
+            const width = box.offsetWidth;
+            const height = box.offsetHeight;
+            
+            const mouseX = event.offsetX;
+            const mouseY = event.offsetY;
+            
+            const percentX = (mouseX / width) * 100;
+            const percentY = (mouseY / height) * 100;
+            
+            const red = Math.round(percentX);
+            const green = Math.round(percentY);
+            const blue = 100;
+            
+            const color = `rgb(${red}%, ${green}%, ${blue}%)`;
+            
+            box.style.backgroundColor = color;
+        }
     </script>
 </body>
 </html>
