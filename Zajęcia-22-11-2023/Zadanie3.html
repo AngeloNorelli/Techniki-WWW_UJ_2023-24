@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kursy walut z NBP</title>
+</head>
+<body>
+    <div id="currencyTable">
+    <h2>Kursy walut z NBP</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Nazwa waluty</th>
+            <th>Kod waluty</th>
+            <th>Kurs średni</th>
+        </tr>
+        </thead>
+        <tbody id="currencyData"></tbody>
+    </table>
+    </div>
+
+    <button onclick="fetchCurrencyData()">Pobierz kursy walut</button>
+
+    <script>
+    function fetchCurrencyData() {
+    fetch('https://api.nbp.pl/api/exchangerates/tables/A')
+        .then(response => response.json())
+        .then(data => {
+        const currencyData = document.getElementById('currencyData');
+        currencyData.innerHTML = ''; // Wyczyszczenie danych przed wyświetleniem nowych kursów
+
+        const currencies = data[0].rates;
+
+        currencies.forEach(currency => {
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            const codeCell = document.createElement('td');
+            const rateCell = document.createElement('td');
+
+            nameCell.textContent = currency.currency;
+            codeCell.textContent = currency.code;
+            rateCell.textContent = currency.mid.toFixed(4);
+
+            row.appendChild(nameCell);
+            row.appendChild(codeCell);
+            row.appendChild(rateCell);
+
+            currencyData.appendChild(row);
+        });
+        })
+        .catch(error => {
+        console.error('Błąd pobierania danych: ', error);
+        });
+    }
+    </script>
+</body>
+</html>
