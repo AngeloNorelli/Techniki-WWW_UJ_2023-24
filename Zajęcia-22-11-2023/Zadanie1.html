@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <title>Prosty Minutnik w JavaScript</title>
+</head>
+
+<body>
+    <div>
+    <label for="secondsInput">Ilość sekund:</label>
+    <input type="number" id="secondsInput" min="1" value="60">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    </div>
+
+    <div id="timerDisplay">
+    Pozostały czas: <span id="timerValue"></span>
+    </div>
+
+    <script>
+        let timer;
+        let seconds = 0;
+
+        function startTimer() {
+        seconds = parseInt(document.getElementById('secondsInput').value);
+        
+        if (seconds > 0) {
+            timer = setInterval(updateTimer, 1000);
+        }
+        }
+
+        function updateTimer() {
+        const timerValue = document.getElementById('timerValue');
+        
+        if (seconds > 0) {
+            seconds--;
+            timerValue.textContent = seconds + 's';
+        } else {
+            clearInterval(timer);
+            timerValue.textContent = 'Koniec!';
+        }
+        }
+
+        function stopTimer() {
+        clearInterval(timer);
+        document.getElementById('timerValue').textContent = 'Minutnik zatrzymany.';
+        }
+    </script>
+</body>
+</html>
