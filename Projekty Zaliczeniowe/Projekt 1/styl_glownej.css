@@ -1,0 +1,44 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.tab-container {
+    display: flex;
+}
+
+.tab {
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab:hover {
+    color: #ffd700;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.submenu .subsite {
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.submenu .subsite:hover {
+    background-color: #f2f2f2;
+}
