@@ -1,26 +1,62 @@
 body, html {
     margin: 0;
     padding: 0;
+    background-color: #e0dfdf;
+    transition: background-color 0.5s ease;
 }
 
 .top-bar {
     background-color: #333;
-    color: #fff;
+    color: #ccc;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-bar-left {
+    padding-left: 20px;
+}
+
+.spacer {
+    margin-bottom: 5px;
+    min-width: 20%;
+    max-width: 40%;
+}
+
+.bar-title {
+    flex: 1;
+    text-align: center;
+    display: flex;
+}
+
+.bar-title h1 {
+    margin: auto;
+    text-align: center;
+    color: #fff;
 }
 
 .tab-container {
+    flex: 1;
+    text-align: right;
     display: flex;
+    justify-content: flex-end;
 }
 
 .tab {
     margin-right: 20px;
     cursor: pointer;
     position: relative;
+    display: inline-block;
+    background-color: #444;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
 }
 
 .tab:hover {
-    color: #ffd700;
+    color: rgb(88, 244, 255);
 }
 
 .submenu {
@@ -41,4 +77,32 @@ body, html {
 
 .submenu .subsite:hover {
     background-color: #f2f2f2;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content iframe {
+    width: 80%;
+    height: 800px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-icons a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 24px;
 }

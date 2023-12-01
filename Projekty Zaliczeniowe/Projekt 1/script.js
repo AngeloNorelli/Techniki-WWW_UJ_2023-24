@@ -11,10 +11,14 @@ document.addEventListener('click', function(event) {
     });
 
     if (!clickedOnTab) {
-        allSubmenus.forEach(function(submenu) {
+        allSubmenus.forEach(function(submenu){
             submenu.style.display = 'none';
         });
     }
+});
+
+window.addEventListener('click', function(event) {
+
 });
 
 function toggleSubmenu(submenuID) {
@@ -46,3 +50,20 @@ function showSubpage(pageID) {
         }
     });
 }
+
+window.addEventListener('message', function(event) {
+    if(event.data.type === 'changeColor' && event.origin === this.window.origin) {
+        document.body.style.backgroundColor = event.data.color;
+    }
+});
+
+const allIframes = document.querySelectorAll('iframe');
+
+allIframes.forEach(function(iframe) {
+    iframe.contentWindow.document.addEventListener('click', function(event) {
+        const allSubmenus = document.querySelectorAll('.submenu');
+        allSubmenus.forEach(function(submenu) {
+            submenu.style.display = 'none';
+        });
+    });
+});
